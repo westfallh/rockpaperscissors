@@ -13,31 +13,35 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    if (computerChoice == 0 && userChoice == "paper"){
+    if (computerChoice == 0 && humanChoice == "paper"){
         console.log("Computer chose rock, you won this round.");
         humanScore++;
     }
-    else if (computerChoice == 0 && userChoice =="scissors"){
+    else if (computerChoice == 0 && humanChoice =="scissors"){
         console.log("Computer chose rock, you lose this round.");
         computerScore++;
     }
-    else if (computerChoice == 1 && userChoice =="rock"){
+    else if (computerChoice == 1 && humanChoice =="rock"){
         console.log("Computer chose paper, you lose this round.");
         computerScore++;
     }
-    else if (computerChoice == 1 && userChoice =="scissors"){
+    else if (computerChoice == 1 && humanChoice =="scissors"){
         console.log("Computer chose paper, you win this round.");
         humanScore++;
     }
-    else if (computerChoice == 2 && userChoice =="rock"){
+    else if (computerChoice == 2 && humanChoice =="rock"){
         console.log("Computer chose scissors, you win this round.");
         humanScore++;
     }
-    else if (computerChoice == 2 && userChoice =="paper"){
+    else if (computerChoice == 2 && humanChoice =="paper"){
         console.log("Computer chose scissors, you lose this round.");
         computerScore++;
     }
     else {
         console.log("A tie.")
     }
+}
+
+function playGame() {
+
 }
