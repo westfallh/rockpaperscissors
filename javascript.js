@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let computerScore = 0;
 
     const buttons = document.querySelectorAll("button");
+    const resultDisplay = document.getElementById("result");
+    const scoreDisplay = document.getElementById("score");
 
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
@@ -17,24 +19,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function playRound(computerChoice, humanChoice) {
-        console.log(`Computer chose: ${computerChoice}`);
-        console.log(`You chose: ${humanChoice}`);
+        let result = "";
 
         if (computerChoice === humanChoice) {
-            console.log("It's a tie.");
+            result = "It's a tie.";
         } else if (
             (humanChoice === "rock" && computerChoice === "scissors") ||
             (humanChoice === "paper" && computerChoice === "rock") ||
             (humanChoice === "scissors" && computerChoice === "paper")
         ) {
-            console.log("You win this round!");
+            result = "You win this round!";
             humanScore++;
         } else {
-            console.log("Computer wins this round!");
+            result = "Computer wins this round!";
             computerScore++;
         }
 
-        console.log(`Score: You ${humanScore} - ${computerScore} Computer`);
+        resultDisplay.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}. ${result}`;
+        scoreDisplay.textContent = `Score: You ${humanScore} - ${computerScore} Computer`;
 
         if (humanScore === 5 || computerScore === 5) {
             declareWinner();
@@ -43,13 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function declareWinner() {
         if (humanScore > computerScore) {
-            console.log("Congratulations! You win the game!");
+            resultDisplay.textContent = "Congratulations! You win the game!";
         } else {
-            console.log("Computer wins the game! Better luck next time.");
+            resultDisplay.textContent = "Computer wins the game! Better luck next time.";
         }
 
         // Reset scores
         humanScore = 0;
         computerScore = 0;
+        scoreDisplay.textContent = `Score: You ${humanScore} - ${computerScore} Computer`;
     }
 });
